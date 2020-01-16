@@ -1,0 +1,8 @@
+export const ADD_DISH = 'ADD_DISH';
+export const REMOVE_DISH = 'REMOVE_DISH';
+
+export const GET_DISHES_REQUEST = 'GET_DISHES_REQUEST';
+export const GET_DISHES_SUCCESS = 'GET_DISHES_SUCCESS';
+export const GET_DISHES_FAILURE = 'GET_DISHES_FAILURE';
+
+export const GET_TOTAL = 'GET_TOTAL';

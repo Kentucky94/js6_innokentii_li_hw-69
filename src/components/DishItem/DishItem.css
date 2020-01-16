@@ -1,0 +1,18 @@
+.DishItem{
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.DishItem img{
+  width: 100px;
+}
+
+.DishItem h2{
+  text-transform: capitalize;
+}
+
+.DishItem button{
+  cursor: pointer;
+}

@@ -1,5 +1,24 @@
 .App {
+  background: lightgrey;
+  border: 1px solid black;
+  display: flex;
+  height: 80vh;
+  justify-content: space-around;
+  margin: 30px auto;
   text-align: center;
+  width: 80vw;
+}
+
+.dishesContainer {
+  border: 1px solid black;
+  margin: 20px 0;
+  width: 60%;
+}
+
+.cartContainer {
+  border: 1px solid black;
+  margin: 20px 0;
+  width: 35%;
 }
 
 .App-logo {
