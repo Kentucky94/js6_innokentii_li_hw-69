@@ -3,10 +3,15 @@ import './App.css'
 import {getDishes} from "./store/actions/dishesActions";
 import {connect} from "react-redux";
 import DishItem from "./components/DishItem/DishItem";
-import {addDish, getTotal, removeDish} from "./store/actions/cartActions";
+import {addDish, getTotal, postOrder, removeDish} from "./store/actions/cartActions";
 import CartItem from "./components/CartItem/CartItem";
+import OrderModal from "./components/OrderModal/OrderModal";
 
 class App extends Component {
+  state = {
+    isModal: false,
+  };
+
   componentDidMount() {
     this.props.getDishes();
   }
@@ -24,6 +29,18 @@ class App extends Component {
 
     this.props.getTotal(total);
   }
+
+  modalShow = () => {
+    this.setState({
+      isModal: true,
+    })
+  };
+
+  modalHide = () => {
+    this.setState({
+      isModal: false,
+    })
+  };
 
   render() {
     const dishes = this.props.dishes.map(dish =>
@@ -61,7 +78,14 @@ class App extends Component {
           {cartDishes}
           <h3>Delivery Price: {this.props.deliveryPrice}</h3>
           <h3>Total Price: {this.props.totalPrice}</h3>
+          <button onClick={this.modalShow}>Place Order</button>
         </div>
+        <OrderModal
+          show={this.state.isModal}
+          close={this.modalHide}
+          dishes={this.props.cartDishes}
+          postOrders={this.props.sendOrder}
+        />
       </div>
     );
   }
@@ -79,6 +103,7 @@ const mapDispatchToProps = dispatch => ({
   addDish: dishName =>  dispatch(addDish(dishName)),
   removeDish: dishName => dispatch(removeDish(dishName)),
   getTotal: orderSum => dispatch(getTotal(orderSum)),
+  sendOrder: (dishesData, customerData) => dispatch(postOrder(dishesData, customerData))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

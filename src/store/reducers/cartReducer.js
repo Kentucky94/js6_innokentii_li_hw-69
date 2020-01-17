@@ -1,5 +1,6 @@
 import {ADD_DISH, GET_TOTAL, REMOVE_DISH} from "../actions/actionTypes";
 
+
 const initialState = {
   orders: [],
   dishes: {
@@ -41,5 +42,7 @@ const cartReducer = (state = initialState, action) => {
       return state
   }
 };
+
+
 
 export default cartReducer
