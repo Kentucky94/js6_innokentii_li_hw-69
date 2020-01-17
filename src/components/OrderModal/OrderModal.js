@@ -15,8 +15,6 @@ class OrderModal extends Component {
     this.setState({
       [data]: event.target.value,
     });
-
-    console.log(this.state)
   };
 
   render(){
